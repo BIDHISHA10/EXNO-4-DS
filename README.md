@@ -159,7 +159,9 @@ df[categorical_columns] = df[categorical_columns].apply(lambda x: x.cat.codes)
 df[categorical_columns]
 ```
 
+<img width="972" height="552" alt="image" src="https://github.com/user-attachments/assets/4486ebf3-573f-495a-a0c5-9b8d6a95864d" />
 
+```
 X = df.drop(columns=['SalStat'])
 y = df['SalStat']
 from sklearn.model_selection import train_test_split
@@ -168,16 +170,38 @@ from sklearn.ensemble import RandomForestClassifier
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 rf = RandomForestClassifier(n_estimators=100, random_state=42)
 rf.fit(X_train, y_train)
+```
+
+<img width="430" height="95" alt="image" src="https://github.com/user-attachments/assets/206eec3c-03d2-436c-b534-88fe91c041ff" />
+
+```
 y_pred = rf.predict(X_test)
 df=pd.read_csv("income.csv")
 df.info()
+```
+
+
+<img width="455" height="465" alt="image" src="https://github.com/user-attachments/assets/d5a4b74d-d3dc-4611-8df8-bc8dcef638ee" />
+
+```
 import pandas as pd
 from sklearn.feature_selection import SelectKBest, chi2, f_classif
 categorical_columns = ['JobType', 'EdType', 'maritalstatus', 'occupation', 'relationship', 'race', 'gender', 'nativecountry']
 df[categorical_columns] = df[categorical_columns].astype('category')
 df[categorical_columns]
+```
+
+
+<img width="1067" height="532" alt="image" src="https://github.com/user-attachments/assets/2799ebe4-830f-4abd-89be-308a7eb79c0b" />
+
+```
 df[categorical_columns] = df[categorical_columns].apply(lambda x: x.cat.codes)
 df[categorical_columns]
+```
+
+<img width="953" height="521" alt="image" src="https://github.com/user-attachments/assets/b888e963-3c40-4ed0-9a05-34d44b3eba80" />
+
+```
 X = df.drop(columns=['SalStat'])
 y = df['SalStat']
 k_chi2 = 6
@@ -186,6 +210,11 @@ X_chi2 = selector_chi2.fit_transform(X, y)
 selected_features_chi2 = X.columns[selector_chi2.get_support()]
 print("Selected features using chi-square test:")
 print(selected_features_chi2)
+```
+
+<img width="772" height="102" alt="image" src="https://github.com/user-attachments/assets/1b4dcfac-2a28-4203-ba83-1d241f30fc28" />
+
+```
 import pandas as pd
 from sklearn.feature_selection import SelectKBest, chi2, f_classif
 from sklearn.model_selection import train_test_split # Importing the missing function
@@ -198,12 +227,28 @@ y = df['SalStat']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 rf = RandomForestClassifier(n_estimators=100, random_state=42)
 rf.fit(X_train, y_train)
+```
+
+
+<img width="431" height="87" alt="image" src="https://github.com/user-attachments/assets/6055adfd-aeb5-48d3-82f9-b167553b51ae" />
+
+```
 y_pred = rf.predict(X_test)
 from sklearn.metrics import accuracy_score
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Model accuracy using selected features: {accuracy}")
-!pip install skfeature-chappers
+```
 
+
+<img width="691" height="37" alt="image" src="https://github.com/user-attachments/assets/d6e7191f-1a0c-49fa-bb0b-41a3c7e58945" />
+
+```
+!pip install skfeature-chappers
+```
+
+<img width="1527" height="376" alt="image" src="https://github.com/user-attachments/assets/4f501dbe-c992-47af-843d-2f19454f5299" />
+
+```
 import numpy as np
 import pandas as pd
 from skfeature.function.similarity_based import fisher_score
@@ -225,6 +270,11 @@ df[categorical_columns] = df[categorical_columns].astype('category')
 df[categorical_columns] = df[categorical_columns].apply(lambda x: x.cat.codes)
 # @title
 df[categorical_columns]
+```
+
+<img width="967" height="532" alt="image" src="https://github.com/user-attachments/assets/83278b61-5132-4860-bdcc-e4bab4190dc2" />
+
+```
 X = df.drop(columns=['SalStat'])
 y = df['SalStat']
 k_anova = 5
@@ -233,7 +283,12 @@ X_anova = selector_anova.fit_transform(X, y)
 selected_features_anova = X.columns[selector_anova.get_support()]
 print("\nSelected features using ANOVA:")
 print(selected_features_anova)
+```
 
+
+<img width="882" height="95" alt="image" src="https://github.com/user-attachments/assets/099587c5-80a7-4c37-8381-0a12d96e01dd" />
+
+```
 # Wrapper Method
 import pandas as pd
 from sklearn.feature_selection import RFE
@@ -254,14 +309,20 @@ categorical_columns = [
 df[categorical_columns] = df[categorical_columns].astype('category')
 df[categorical_columns] = df[categorical_columns].apply(lambda x: x.cat.codes)
 df[categorical_columns]
+```
+
+<img width="947" height="543" alt="image" src="https://github.com/user-attachments/assets/c20776bb-7817-4ba4-80f8-f4bb2caae0b9" />
+
+```
 X = df.drop(columns=['SalStat'])
 y = df['SalStat']
 logreg = LogisticRegression()
 n_features_to_select =6
 rfe = RFE(estimator=logreg, n_features_to_select=n_features_to_select)
 rfe.fit(X, y)
-
-
 ```
+
+<img width="330" height="196" alt="image" src="https://github.com/user-attachments/assets/4817b2d4-989a-42fc-a7c1-283add5be2ae" />
+
 # RESULT:
-       # INCLUDE YOUR RESULT HERE
+Thus the program to read the given data and perform Feature Scaling and Feature Selection process and save the data to a file is been executed.
